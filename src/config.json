@@ -1,0 +1,19 @@
+{
+  "limit": {
+    "min": 10,
+    "max": 100,
+    "value": 20,
+    "step": 10
+  },
+  "yearSpan": {
+    "start": 1989
+  },
+  "requestTimeout": 6e4,
+  "theme": {
+    "palette": {
+      "primary": "#F2E7C4",
+      "secondary": "#B53B74",
+      "background": ["#2D2355", "#1A1336"]
+    }
+  }
+}
