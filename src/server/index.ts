@@ -37,7 +37,7 @@ app.get('/max/:span([0-9]{4}-[0-9]{4})/:limit([0-9]{2,4})?', (req, res) => {
   const { span } = req.params;
   const [start, end] = span.split('-');
 
-  if (isDbConnected()) {
+  if (!isDbConnected()) {
     const queryMaxTotal = `SELECT SUM(count) as total FROM data WHERE YEAR(date) BETWEEN ${start} AND ${end} GROUP BY YEAR(date) ORDER BY total DESC LIMIT 1`;
     const queryMaxEntry = `SELECT count FROM data WHERE count=(SELECT max(count) FROM data WHERE YEAR(date) BETWEEN ${start} AND ${end})`;
     dbConnection.query(`SELECT (${queryMaxTotal}) AS total, (${queryMaxEntry}) AS entry`, (error, [result] = []) => {

@@ -8,7 +8,7 @@
     "client:serve": "node scripts/client --serve",
     "server:build": "node scripts/server",
     "server:watch": "node scripts/server --watch --start",
-    "server:start": "node scripts/server --start",
+    "server:start": "node scripts/server/index.js --start",
     "build": "npm run server:build && npm run client:build",
     "serve": "concurrently \"npm run server:watch\" \"npm run client:serve\"",
     "lint": "node_modules/.bin/eslint .",

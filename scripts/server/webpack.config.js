@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const { PWD } = process.env;
 
-const base = require('../webpack.config');
+const base = require('../webpack.config.js');
 
 const plugins = [
   new CopyWebpackPlugin({

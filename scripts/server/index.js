@@ -29,8 +29,12 @@ const buildServer = () => new Promise((resolve) => {
 });
 
 buildServer()
-  .then(() => {
-    if (shouldStart) return spawnNodemon(path.resolve(PWD, 'build/server', 'index.js'));
+  .then(async () => {
+    if (shouldStart) {
+      const generateDb = require('../../src/server/mock');
+      const db = await generateDb();
+      return spawnNodemon(path.resolve(PWD, 'build/server', 'index.js'));
+    }
     return null;
   })
   .then(() => {

@@ -7,6 +7,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const { PWD, NODE_ENV: mode } = process.env;
 const isEnvDevelopment = mode === 'development';
 
+console.log('PWD', PWD);
 module.exports = {
   mode,
   devtool: isEnvDevelopment ? 'inline-source-map' : false,
@@ -33,11 +34,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new ESLintPlugin({
-      extensions: ['js', 'ts'],
-      context: path.resolve(PWD),
-      files: 'src',
-      eslintPath: require.resolve('eslint'),
-    }),
+    // new ESLintPlugin({
+    //   extensions: ['js', 'ts'],
+    //   context: path.resolve(PWD),
+    //   files: 'src',
+    //   eslintPath: require.resolve('eslint'),
+    // }),
   ],
 };
